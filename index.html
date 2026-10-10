@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ProChatCommerce - AI Automation, Systems Architecture & Digital Product Blog</title>
-  <meta name="description" content="Publikasi teknis independen dan panduan SEO mendalam tentang arsitektur otomasi AI, deployment n8n mandiri, dan strategi monetisasi produk digital untuk pasar global dan lokal.">
+  <title>ProChatCommerce — Jurnal Arsitektur Sistem, Otomasi & Bisnis Digital</title>
+  <meta name="description" content="Publikasi teknis independen seputar implementasi alur kerja otomasi mandiri, arsitektur server, dan strategi distribusi produk digital.">
   <link rel="canonical" href="https://prochatcommerce.com/">
   <link rel="stylesheet" href="/styles.css">
   <script type="application/ld+json">
@@ -13,12 +13,7 @@
     "@type": "WebSite",
     "name": "ProChatCommerce",
     "url": "https://prochatcommerce.com/",
-    "description": "Technical publication on AI automation workflows, systems engineering, and digital commerce.",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://prochatcommerce.com/en/blog/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "description": "Publikasi teknis independen seputar implementasi alur kerja otomasi mandiri, arsitektur server, dan strategi distribusi produk digital."
   }
   </script>
 </head>
@@ -27,8 +22,8 @@
     <div class="nav-bar">
       <a href="/" class="brand">ProChatCommerce</a>
       <div class="nav-links">
-        <a href="/en/blog/">Blog (EN)</a>
         <a href="/id/blog/">Blog (ID)</a>
+        <a href="/en/blog/">Blog (EN)</a>
         <a href="/products/">Katalog Produk</a>
         <a href="/en/" class="lang-badge">EN</a>
         <a href="/id/" class="lang-badge">ID</a>
@@ -38,116 +33,89 @@
 
   <main class="container">
     <section class="hero">
-      <span class="badge badge-blue">Publikasi Rekayasa Otomasi & Bisnis Digital</span>
-      <h1>AI Automation, Production Systems & Digital Product Playbooks</h1>
-      <p>Panduan teknis mendalam, arsitektur alur kerja tanpa AI-slop, dan strategi monetisasi organik untuk solopreneur serta bisnis modern di pasar Indonesia maupun global.</p>
+      <span class="badge badge-blue">Publikasi Rekayasa Sistem & Bisnis Digital</span>
+      <h1>Arsitektur Sistem, Otomasi Mandiri & Bisnis Digital</h1>
+      <p>Catatan lapangan praktis mengenai perancangan alur kerja otomasi berbasis event, pengelolaan infrastruktur server mandiri, serta studi kasus membangun aset digital berkelanjutan.</p>
       <div>
-        <a href="/en/blog/" class="btn">Read English Guides &rarr;</a>
-        <a href="/id/blog/" class="btn btn-secondary">Baca Panduan Indonesia &rarr;</a>
+        <a href="/id/blog/" class="btn">Baca Artikel (Indonesia) &rarr;</a>
+        <a href="/en/blog/" class="btn btn-secondary">Read English Articles &rarr;</a>
       </div>
     </section>
 
-    <!-- SECTION: ENGLISH TECHNICAL ARTICLES -->
+    <!-- ARTIKEL PILIHAN BAHASA INDONESIA -->
     <div class="section-title">
-      <h2>Engineering & Automation Guides (Global)</h2>
-      <a href="/en/blog/">View All English Articles &rarr;</a>
+      <h2>Panduan Teknis & Riset (Indonesia)</h2>
+      <a href="/id/blog/">Lihat Semua Artikel &rarr;</a>
     </div>
 
     <div class="grid" style="grid-template-columns: 1fr; gap: 20px;">
       <div class="card">
         <div>
-          <span class="badge badge-blue">DevOps & Systems</span>
+          <span class="badge badge-green">Infrastruktur & Otomasi</span>
+          <h3><a href="/id/blog/otomasi-ai-solopreneur.html">Panduan Lengkap Otomasi Alur Kerja Bisnis Menggunakan n8n Mandiri</a></h3>
+          <p>Cara merancang arsitektur otomasi menggunakan server pribadi, webhook, dan integrasi API untuk memangkas jam kerja operasional tanpa biaya langganan bulanan berlebih.</p>
+          <div style="font-size:0.85rem; color:var(--muted); margin-bottom:12px;">10 Oktober 2026 · Waktu baca: 7 menit · Kategori: Otomasi Sistem</div>
+        </div>
+        <div>
+          <a href="/id/blog/otomasi-ai-solopreneur.html" class="btn btn-secondary" style="margin-left:0;">Baca Artikel Lengkap &rarr;</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <span class="badge badge-green">Distribusi & Monetisasi</span>
+          <h3><a href="/id/blog/strategi-monetisasi-produk-digital.html">Strategi Monetisasi dan Distribusi Produk Digital Berbasis Pencarian Organik</a></h3>
+          <p>Prinsip menyusun penawaran bernilai nyata, riset kebutuhan pasar yang spesifik, dan membangun saluran distribusi mandiri melalui optimasi mesin pencari.</p>
+          <div style="font-size:0.85rem; color:var(--muted); margin-bottom:12px;">10 Oktober 2026 · Waktu baca: 6 menit · Kategori: Riset Bisnis Digital</div>
+        </div>
+        <div>
+          <a href="/id/blog/strategi-monetisasi-produk-digital.html" class="btn btn-secondary" style="margin-left:0;">Baca Artikel Lengkap &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECHNICAL ARTICLES (ENGLISH) -->
+    <div class="section-title">
+      <h2>Engineering & Architecture Guides (English)</h2>
+      <a href="/en/blog/">View All English Guides &rarr;</a>
+    </div>
+
+    <div class="grid" style="grid-template-columns: 1fr; gap: 20px;">
+      <div class="card">
+        <div>
+          <span class="badge badge-blue">DevOps & Cloud</span>
           <h3><a href="/en/blog/self-hosted-n8n-docker-guide.html">Deploying Self-Hosted n8n on a VPS with Docker: Production Architecture Guide</a></h3>
-          <p>Complete step-by-step blueprint to running self-hosted n8n with Docker Compose, PostgreSQL 16, and Caddy reverse proxy on a low-cost VPS for zero-marginal-cost workflow automation.</p>
-          <div style="font-size:0.85rem; color:var(--muted);">Published October 2026 · 8 min read · Category: DevOps</div>
+          <p>Step-by-step technical blueprint for running containerized n8n workflows with PostgreSQL 16 persistence, automated Let's Encrypt SSL via Caddy, and persistent volumes.</p>
+          <div style="font-size:0.85rem; color:var(--muted); margin-bottom:12px;">Published October 2026 · 8 min read · Category: DevOps</div>
         </div>
-        <div style="margin-top:16px;">
-          <a href="/en/blog/self-hosted-n8n-docker-guide.html" class="btn btn-secondary">Read Article &rarr;</a>
+        <div>
+          <a href="/en/blog/self-hosted-n8n-docker-guide.html" class="btn btn-secondary" style="margin-left:0;">Read Architecture Guide &rarr;</a>
         </div>
       </div>
 
       <div class="card">
         <div>
-          <span class="badge badge-blue">Architecture Pillar</span>
-          <h3><a href="/en/blog/ai-automation-solopreneurs.html">AI Automation and No-Code Workflows for Solopreneurs: n8n and Make Guide</a></h3>
-          <p>Learn how modern solopreneurs eliminate 15+ hours of manual operations weekly using event-driven webhooks, RAG triage, and predictable self-hosted execution engines.</p>
-          <div style="font-size:0.85rem; color:var(--muted);">Published October 2026 · 8 min read · Category: Systems</div>
+          <span class="badge badge-blue">Systems Architecture</span>
+          <h3><a href="/en/blog/ai-automation-solopreneurs.html">Event-Driven Automation Workflows for Solopreneurs: n8n and Make Architecture</a></h3>
+          <p>How modern builders design resilient webhook handlers, background processing pipelines, and structured integrations across third-party cloud services.</p>
+          <div style="font-size:0.85rem; color:var(--muted); margin-bottom:12px;">Published October 2026 · 8 min read · Category: Systems</div>
         </div>
-        <div style="margin-top:16px;">
-          <a href="/en/blog/ai-automation-solopreneurs.html" class="btn btn-secondary">Read Article &rarr;</a>
+        <div>
+          <a href="/en/blog/ai-automation-solopreneurs.html" class="btn btn-secondary" style="margin-left:0;">Read Systems Guide &rarr;</a>
         </div>
       </div>
     </div>
 
-    <!-- SECTION: INDONESIAN ARTICLES -->
-    <div class="section-title">
-      <h2>Panduan Teknis & Monetisasi (Bahasa Indonesia)</h2>
-      <a href="/id/blog/">Lihat Semua Artikel Indonesia &rarr;</a>
-    </div>
-
-    <div class="grid" style="grid-template-columns: 1fr; gap: 20px;">
-      <div class="card">
-        <div>
-          <span class="badge badge-green">Pilar Otomasi</span>
-          <h3><a href="/id/blog/otomasi-ai-solopreneur.html">Panduan Lengkap Otomasi AI & Workflow Bisnis Digital untuk Solopreneur</a></h3>
-          <p>Pelajari cara memangkas 15 jam kerja manual per minggu dengan webhook, integrasi n8n mandiri, dan model AI terarah tanpa membengkakkan biaya operasional bulanan.</p>
-          <div style="font-size:0.85rem; color:var(--muted);">10 Oktober 2026 · Waktu baca: 7 menit · Kategori: Solopreneur & AI</div>
-        </div>
-        <div style="margin-top:16px;">
-          <a href="/id/blog/otomasi-ai-solopreneur.html" class="btn btn-secondary">Baca Artikel Lengkap &rarr;</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div>
-          <span class="badge badge-green">Monetisasi Digital</span>
-          <h3><a href="/id/blog/strategi-monetisasi-produk-digital.html">Strategi Monetisasi Produk Digital Berulang Tanpa Ketergantungan Iklan Berbayar</a></h3>
-          <p>Prinsip menyusun penawaran digital bernilai nyata, optimasi SEO organik, dan funnel konversi mandiri dengan margin maksimal untuk kreator Indonesia.</p>
-          <div style="font-size:0.85rem; color:var(--muted);">10 Oktober 2026 · Waktu baca: 6 menit · Kategori: Produk Digital</div>
-        </div>
-        <div style="margin-top:16px;">
-          <a href="/id/blog/strategi-monetisasi-produk-digital.html" class="btn btn-secondary">Baca Artikel Lengkap &rarr;</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- SECTION: SUBLINKS PRODUCTS -->
-    <div class="sublink-box">
-      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
-        <div>
-          <span class="badge badge-purple">Sublink Katalog</span>
-          <h3>Blueprint & Produk Digital Siap Pakai</h3>
-          <p>Seluruh materi praktis, prompt teruji, dan template otomasi disajikan di sub-path katalog terpisah agar alur belajar tetap terfokus.</p>
-        </div>
-        <a href="/products/" class="btn">Buka Katalog /products/ &rarr;</a>
-      </div>
-
-      <div class="grid" style="margin-top:20px; margin-bottom:0;">
-        <div class="card">
-          <div>
-            <span class="badge badge-green">Pasar Lokal</span>
-            <h3>Sistem Konten AI Affiliate</h3>
-            <p>Pecah telur komisi pertama dalam 7 hari tanpa tampil wajah. 50 prompt riset produk menang, template script video viral, dan tutorial CapCut faceless.</p>
-            <div class="price">Rp 49.000</div>
-          </div>
-          <a href="/products/ai-affiliate/" class="btn">Akses Sublink &rarr;</a>
-        </div>
-
-        <div class="card">
-          <div>
-            <span class="badge badge-blue">Pasar Global</span>
-            <h3>25 Production n8n Workflows</h3>
-            <p>Turnkey enterprise-grade automation blueprints for solopreneurs. Includes webhook triage, content repurposing, and fraud protection.</p>
-            <div class="price">$27 USD</div>
-          </div>
-          <a href="/products/n8n-blueprints/" class="btn btn-secondary">View Sublink &rarr;</a>
-        </div>
-      </div>
+    <!-- TENTANG PUBLIKASI -->
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:28px; margin:48px 0 24px;">
+      <h3 style="color:var(--heading); font-size:1.25rem; margin-bottom:10px;">Tentang Publikasi ProChatCommerce</h3>
+      <p style="color:var(--muted); font-size:0.95rem; line-height:1.6; margin-bottom:12px;">ProChatCommerce merupakan ruang dokumentasi teknis independen yang berfokus pada efisiensi operasional digital. Kami menyajikan studi kasus implementasi alur kerja otomasi mandiri, rekayasa infrastruktur server, dan strategi distribusi produk digital.</p>
+      <p style="color:var(--muted); font-size:0.9rem;">Untuk melihat koleksi blueprint dan template terstruktur yang kami kembangkan, silakan kunjungi <a href="/products/" style="color:var(--accent); text-decoration:none;">Katalog Produk &rarr;</a></p>
     </div>
   </main>
 
   <footer>
-    <p>&copy; 2026 ProChatCommerce. All rights reserved. Bilingual SEO & Systems Architecture.</p>
+    <p>&copy; 2026 ProChatCommerce. Hak Cipta Dilindungi. Publikasi Rekayasa Sistem & Bisnis Digital.</p>
   </footer>
 </body>
 </html>
