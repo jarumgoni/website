@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deploying Self-Hosted n8n on a VPS with Docker: Production Architecture Guide | ProChatCommerce</title>
+  <meta name="description" content="Step-by-step technical guide to deploying production-ready self-hosted n8n using Docker Compose, Caddy reverse proxy, and PostgreSQL on a low-cost VPS.">
+  <link rel="canonical" href="https://prochatcommerce.com/en/blog/self-hosted-n8n-docker-guide.html">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Deploying Self-Hosted n8n on a VPS with Docker: Production Architecture Guide",
+    "description": "How to deploy a resilient, self-hosted n8n automation cluster on a cheap VPS with automated SSL and persistent storage.",
+    "author": {
+      "@type": "Organization",
+      "name": "ProChatCommerce Editorial"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ProChatCommerce"
+    },
+    "datePublished": "2026-10-10",
+    "inLanguage": "en"
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="nav-bar">
+      <a href="/en/" class="brand">ProChatCommerce</a>
+      <div class="nav-links">
+        <a href="/en/">Blog</a>
+        <a href="/products/">Products</a>
+        <a href="/id/" class="lang-badge">ID</a>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+    <article class="content">
+      <span class="badge badge-blue">DevOps & Architecture</span>
+      <h1>Deploying Self-Hosted n8n on a VPS with Docker: Production Architecture Guide</h1>
+      <div class="meta">Published October 10, 2026 · 8 min read · Category: Systems & DevOps</div>
+
+      <h2>The Case for Self-Hosting Your Automation Engine</h2>
+      <p>SaaS automation providers charge based on workflow runs or node operations. If you build continuous data synchronization pipelines, automated webhook responders, or multi-step AI document processing, a single busy workflow can trigger hundreds of thousands of operations every week, pushing your SaaS bills into hundreds of dollars monthly.</p>
+      <p>By hosting n8n on your own dedicated Virtual Private Server (VPS), you decouple your workflow execution volume from operating costs. A $10/month VPS can easily execute upwards of 250,000 webhook events monthly with zero marginal cost.</p>
+
+      <h2>Recommended Production Architecture</h2>
+      <p>For a reliable single-node setup that handles automatic TLS certificates and database persistence, we use:</p>
+      <ul>
+        <li><strong>Host OS:</strong> Ubuntu 24.04 LTS (minimum 2 vCPU, 4GB RAM).</li>
+        <li><strong>Orchestrator:</strong> Docker & Docker Compose.</li>
+        <li><strong>Database:</strong> PostgreSQL 16 (replacing the default SQLite for concurrent execution integrity).</li>
+        <li><strong>Reverse Proxy:</strong> Caddy 2 for automated zero-configuration Let's Encrypt SSL issuance.</li>
+      </ul>
+
+      <h2>Minimal Docker Compose Configuration</h2>
+      <p>A resilient compose architecture isolates database volumes, sets health checks, and mounts webhook network bridges. Ensure environment variables are secured using an isolated <code>.env</code> file on your host machine.</p>
+
+      <h2>Handling Production Webhook Volumes</h2>
+      <p>When connecting third-party platforms like Stripe or e-commerce webhooks, ensure you configure <code>WEBHOOK_URL</code> to match your public HTTPS domain. If your workflows execute high-latency AI calls via OpenAI or local Ollama endpoints, use sub-workflows to immediately respond <code>200 OK</code> to the inbound webhook before triggering downstream asynchronous tasks.</p>
+
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:24px; margin:32px 0;">
+        <h3 style="color:var(--heading); margin-bottom:8px;">Need Pre-Built Enterprise Workflows?</h3>
+        <p style="color:var(--muted); margin-bottom:16px;">Download our production pack of 25 tested n8n blueprints for solopreneurs, including webhook triage and media repurposing.</p>
+        <a href="/products/n8n-blueprints/" class="btn">View 25 Production Blueprints &rarr;</a>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <p>&copy; 2026 ProChatCommerce. All rights reserved.</p>
+  </footer>
+</body>
+</html>
