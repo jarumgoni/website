@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akses Produk & Member Vault — Pabrik AI Pro™</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#090a0f',
+                            800: '#11131f',
+                            700: '#1a1d2e',
+                            600: '#262a40'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #090a0f; color: #e2e8f0; }
+        .glow-border { box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.25); }
+        .glow-success { box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.25); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
+
+    <!-- Top Navigation -->
+    <header class="border-b border-dark-700 bg-dark-900/80 backdrop-blur sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="/pabrik-ai/" class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center font-bold text-white font-mono text-sm">P</div>
+                <span class="font-extrabold tracking-tight text-white text-lg">Pabrik AI Pro<span class="text-indigo-400">™</span></span>
+            </a>
+            <div class="flex items-center gap-4 text-xs font-mono">
+                <div id="auth-status-badge" class="px-2.5 py-1 rounded-full border border-red-500/40 bg-red-500/10 text-red-400 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-red-400 animate-pulse"></span>
+                    <span>STATUS: TERKUNCI</span>
+                </div>
+                <button id="btn-logout" onclick="lockVault()" class="hidden px-2.5 py-1 rounded border border-dark-600 hover:bg-dark-700 text-slate-400 hover:text-white transition">
+                    Kunci Kembali
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN VIEWPORT -->
+    <main class="flex-1 max-w-6xl mx-auto w-full px-4 py-8">
+
+        <!-- ================= SECTION 1: LOCKED SCREEN ================= -->
+        <div id="locked-view" class="max-w-md mx-auto my-12 text-center">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-dark-800 border border-dark-700 flex items-center justify-center text-3xl shadow-xl">
+                🔒
+            </div>
+            <h1 class="text-2xl font-extrabold text-white mb-2">Vault Produk Terkunci</h1>
+            <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                Halaman ini khusus untuk pemegang lisensi resmi <span class="text-indigo-300 font-semibold">Pabrik AI Pro™</span>. Masukkan Lisensi Key atau Order ID Anda untuk membuka seluruh modul.
+            </p>
+
+            <div class="bg-dark-800 p-6 rounded-xl border border-dark-700 glow-border text-left">
+                <label class="block text-xs font-mono text-slate-300 uppercase mb-2">Kode Lisensi / Order ID / Email Pembelian</label>
+                <div class="flex gap-2 mb-3">
+                    <input type="text" id="license-input" placeholder="Contoh: PABRIKAI-PRO-XXXX" class="flex-1 bg-dark-900 border border-dark-600 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 font-mono focus:outline-none focus:border-indigo-500">
+                    <button onclick="attemptUnlock()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold rounded-lg transition">
+                        Buka
+                    </button>
+                </div>
+                <div id="unlock-error" class="hidden text-xs text-rose-400 font-mono mt-1">
+                    ⚠️ Lisensi tidak valid atau belum terdaftar.
+                </div>
+                <div class="text-[11px] text-slate-500 mt-4 leading-relaxed border-t border-dark-700/60 pt-3">
+                    💡 Pembeli mendapatkan kode akses otomatis di email sesaat setelah checkout. Lisensi demo/evaluasi: <code class="text-indigo-400">PABRIKAI199</code>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-dark-700/60">
+                <p class="text-xs text-slate-400 mb-3">Belum memiliki lisensi komersial?</p>
+                <a href="https://masbintoro.gumroad.com/l/ai-appfactory-pro" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition shadow-lg shadow-emerald-900/30">
+                    <span>Beli Lisensi Rp 199.000 / $15</span>
+                    <span>→</span>
+                </a>
+                <div class="mt-4">
+                    <a href="https://wa.me/6283872252188?text=Halo%20Mas%20Arie%2C%20saya%20butuh%20bantuan%20aktivasi%20akses%20produk%20Pabrik%20AI" target="_blank" class="text-xs text-emerald-400 hover:underline inline-flex items-center gap-1 font-mono">
+                        💬 Kendala akses? Hubungi Mas Arie via WhatsApp: 0838-7225-2188
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SECTION 2: UNLOCKED DASHBOARD ================= -->
+        <div id="unlocked-view" class="hidden">
+            
+            <!-- Success Notification Banner -->
+            <div class="mb-8 p-4 rounded-xl border border-emerald-500/40 bg-emerald-950/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4 glow-success">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-600/20 text-emerald-400 flex items-center justify-center text-xl font-bold">✓</div>
+                    <div>
+                        <div class="text-white font-bold text-sm">Akses Lisensi Komersial Terbuka</div>
+                        <div class="text-slate-400 text-xs">Selamat datang! Seluruh materi, master engine, prompt, dan panduan siap diakses.</div>
+                    </div>
+                </div>
+                <div>
+                    <a href="/downloads/pabrik_ai_pro_vault_2026.zip" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition shadow">
+                        <span>⬇️ Download Bundel Lengkap (.ZIP)</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product Items Grid (8 Pillars) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+
+                <!-- 01 Quick Start Guide -->
+                <div class="bg-dark-800 p-5 rounded-xl border border-dark-700 hover:border-indigo-500/50 transition">
+                    <div class="flex items-start justify-between mb-3">
+                        <span class="text-xs font-mono px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">MODUL 01</span>
+                        <span class="text-lg">🚀</span>
+                    </div>
+                    <h3 class="text-white font-bold text-base mb-1">Quick Start Guide</h3>
+                    <p class="text-slate-400 text-xs mb-4">Panduan 6 tahap dari merumuskan ide sampai aplikasi live online dalam 60 menit.</p>
+                    <div class="flex gap-2">
+                        <button onclick="viewDoc('01')" class="px-3 py-1.5 rounded bg-dark-700 hover:bg-dark-600 text-white text-xs font-semibold">Baca Dokumen</button>
+                    </div>
+                </div>
+
+                <!-- 02 Master AI Engine -->
+                <div class="bg-dark-800 p-5 rounded-xl border border-indigo-500/40 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-indigo-600 text-[10px] font-bold px-2 py-0.5 rounded-bl text-white font-mono">UTAMA</div>
+                    <div class="flex items-start justify-between mb-3">
+                        <span class="text-xs font-mono px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">MODUL 02</span>
+                        <span class="text-lg">🤖</span>
+                    </div>
+                    <h3 class="text-white font-bold text-base mb-1">Master AI Engine Prompt</h3>
+                    <p class="text-slate-400 text-xs mb-4">System prompt inti tingkat enterprise (Gemini Gem / Claude / GPT) tanpa placeholder.</p>
+                    <div class="flex gap-2">
+                        <button onclick="viewDoc('02')" class="px-3 py-1.5 rounded bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold">Salin System Prompt</button>
+                    </div>
+                </div>
+
+                <!-- 03 Master Guide Workflow -->
+                <div class="bg-dark-800 p-5 rounded-xl border border-dark-700 hover:border-indigo-500/50 transition">
+                    <div class="flex items-start justify-between mb-3">
+                        <span class="text-xs font-mono px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">MODUL 03</span>
+                        <span class="text-lg">📘</span>
+                    </div>
+                    <h3 class="text-white font-bold text-base mb-1">Master Guide: Arsitektur & Workflow</h3>
+                    <p class="text-slate-400 text-xs mb-4">Metodologi modular 4-layer agar AI tidak error kehabisan context window.</p>
+                    <div class="flex gap-2">
+                        <button onclick="viewDoc('03')" class="px-3 py-1.5 rounded bg-dark-700 hover:bg-dark-600 text-white text-xs font-semibold">Baca Dokumen</button>
+                    </div>
+                </div>
+
+                <!-- 04 Prompt Library -->
+                <div class="bg-dark-800 p-5 rounded-xl border border-dark-700 hover:border-indigo-500/50 transition">
+                    <div class="flex items-start justify-between mb-3">
+                        <span class="text-xs font-mono px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">MODUL 04</span>
+                        <span class="text-lg">⚡</span>
+                    </div>
+                    <h3 class="text-white font-bold text-base mb-1">Prompt Library Fitur Spesifik</h3>
+                    <p class="text-slate-400 text-xs mb-4">Koleksi prompt cetak struk thermal 58mm, upload storage, chart, & validasi form.</p>
+                    <div class="flex gap-2">
+                        <button onclick="viewDoc('04')" class="px-3 py-1.5 rounded bg-dark-700 hover:bg-dark-600 text-white text-xs font-semibold">Baca Dokumen</button>
+                    </div>
+                </div>
+
+                <!-- 05 Supabase Database Guide -->
+                <div class="bg-dark-800 p-5 rounded-xl border border-dark-700 hover:border-indigo-500/50 transition">
+                    <div class="flex items-start justify-between mb-3">
+                        <span class="text-xs font-mono px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">MODUL 05</span>
+                        <span class="text-lg">🗄️</span>
+                    </div>
+                    <h3 class="text-white font-bold text-base mb-1">Supabase Database & RLS Guide</h3>
+                    <p class="text-slate-400 text-xs mb-4">Setup database gratis, operasi CRUD, autentikasi multi-tenant, dan Row Level Security.</p>
+                    <div class="flex gap-2">
+                        <button onclick="viewDoc('05')" class="px-3 py-1.5 rounded bg-dark-700 hover:bg-dark-600 text-white text-xs font-semibold">Baca Dokumen</button>
+                    </div>
+                </div>
+
+                <!-- 06 Troubleshooting Kit -->
+                <div class="bg-dark-800 p-5 rounded-xl border border-dark-700 hover:border-indigo-500/50 transition">
+                    <div class="flex items-start justify-between mb-3">
+                        <span class="text-xs font-mono px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">MODUL 06</span>
+                        <span class="text-lg">🛠️</span>
+                    </div>
+                    <h3 class="text-white font-bold text-base mb-1">Troubleshooting & Error Kit</h3>
+                    <p class="text-slate-400 text-xs mb-4">Solusi instan 5 jenis error paling sering: env variable, RLS, hydration, & CORS.</p>
+                    <div class="flex gap-2">
+                        <button onclick="viewDoc('06')" class="px-3 py-1.5 rounded bg-dark-700 hover:bg-dark-600 text-white text-xs font-semibold">Baca Dokumen</button>
+                    </div>
+                </div>
+
+                <!-- 07 25 App Ideas & Templates -->
+                <div class="bg-dark-800 p-5 rounded-xl border border-dark-700 hover:border-indigo-500/50 transition">
+                    <div class="flex items-start justify-between mb-3">
+                        <span class="text-xs font-mono px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">MODUL 07</span>
+                        <span class="text-lg">💡</span>
+                    </div>
+                    <h3 class="text-white font-bold text-base mb-1">25 Template Ide Aplikasi Bisnis</h3>
+                    <p class="text-slate-400 text-xs mb-4">Kasir POS, Gudang, CRM, Booking, Invoice, Laundry, Bengkel, Restoran, dll.</p>
+                    <div class="flex gap-2">
+                        <button onclick="viewDoc('07')" class="px-3 py-1.5 rounded bg-dark-700 hover:bg-dark-600 text-white text-xs font-semibold">Baca Dokumen</button>
+                    </div>
+                </div>
+
+                <!-- 08 Deployment Guide -->
+                <div class="bg-dark-800 p-5 rounded-xl border border-dark-700 hover:border-indigo-500/50 transition">
+                    <div class="flex items-start justify-between mb-3">
+                        <span class="text-xs font-mono px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">MODUL 08</span>
+                        <span class="text-lg">🌐</span>
+                    </div>
+                    <h3 class="text-white font-bold text-base mb-1">Deployment Guide (Online Gratis)</h3>
+                    <p class="text-slate-400 text-xs mb-4">Langkah publish ke Vercel, Cloudflare Pages, atau VPS Ubuntu dalam hitungan menit.</p>
+                    <div class="flex gap-2">
+                        <button onclick="viewDoc('08')" class="px-3 py-1.5 rounded bg-dark-700 hover:bg-dark-600 text-white text-xs font-semibold">Baca Dokumen</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- VIEWER MODAL -->
+    <div id="doc-modal" class="fixed inset-0 bg-black/80 backdrop-blur z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-dark-800 border border-dark-700 rounded-2xl max-w-3xl w-full max-h-[85vh] flex flex-col shadow-2xl">
+            <div class="p-4 border-b border-dark-700 flex items-center justify-between">
+                <div id="modal-title" class="font-bold text-white text-base">Judul Dokumen</div>
+                <button onclick="closeModal()" class="w-8 h-8 rounded-lg bg-dark-700 hover:bg-dark-600 flex items-center justify-center text-slate-400 hover:text-white">✕</button>
+            </div>
+            <div id="modal-content" class="p-6 overflow-y-auto font-mono text-xs text-slate-300 leading-relaxed whitespace-pre-wrap flex-1 bg-dark-900/50">
+                Memuat dokumen...
+            </div>
+            <div class="p-3 border-t border-dark-700 flex justify-end gap-2 bg-dark-800 rounded-b-2xl">
+                <button onclick="copyModalContent()" id="btn-copy-modal" class="px-4 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs rounded-lg transition">
+                    Salin Teks
+                </button>
+                <button onclick="closeModal()" class="px-4 py-1.5 bg-dark-700 hover:bg-dark-600 text-slate-300 text-xs rounded-lg">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Storage & Session State
+        const VALID_KEYS = ["PABRIKAI199", "PABRIK-AI-2026-VIP", "GUMROAD-VERIFIED", "WHOP-ACTIVE"];
+
+        function isUnlocked() {
+            return localStorage.getItem('pabrikai_unlocked') === 'true';
+        }
+
+        function unlockVault() {
+            localStorage.setItem('pabrikai_unlocked', 'true');
+            document.getElementById('locked-view').classList.add('hidden');
+            document.getElementById('unlocked-view').classList.remove('hidden');
+            document.getElementById('btn-logout').classList.remove('hidden');
+            
+            const badge = document.getElementById('auth-status-badge');
+            badge.className = "px-2.5 py-1 rounded-full border border-emerald-500/40 bg-emerald-500/10 text-emerald-400 flex items-center gap-1.5";
+            badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-400"></span><span>STATUS: LISENSI AKTIF</span>';
+        }
+
+        function lockVault() {
+            localStorage.removeItem('pabrikai_unlocked');
+            location.reload();
+        }
+
+        function attemptUnlock() {
+            const input = document.getElementById('license-input').value.trim();
+            const err = document.getElementById('unlock-error');
+            
+            if (VALID_KEYS.includes(input.toUpperCase()) || input.length >= 8) {
+                err.classList.add('hidden');
+                unlockVault();
+            } else {
+                err.classList.remove('hidden');
+            }
+        }
+
+        // Auto unlock check via query param ?key=... or ?license=... or ?order_id=...
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const key = params.get('key') || params.get('license') || params.get('order_id');
+            if (key) {
+                unlockVault();
+                return;
+            }
+
+            if (isUnlocked()) {
+                unlockVault();
+            }
+        });
+
+        // Document Content Cache
+        const DOCS = {
+            '01': {
+                title: 'Modul 01: Quick Start Guide',
+                file: '01_QUICK_START_GUIDE.md'
+            },
+            '02': {
+                title: 'Modul 02: Master AI Engine Prompt',
+                file: '02_MASTER_AI_ENGINE_PROMPT.md'
+            },
+            '03': {
+                title: 'Modul 03: Master Guide Workflow & Arsitektur',
+                file: '03_MASTER_GUIDE_WORKFLOW.md'
+            },
+            '04': {
+                title: 'Modul 04: Prompt Library Fitur',
+                file: '04_PROMPT_LIBRARY_FEATURES.md'
+            },
+            '05': {
+                title: 'Modul 05: Supabase Database Guide',
+                file: '05_SUPABASE_DATABASE_GUIDE.md'
+            },
+            '06': {
+                title: 'Modul 06: Troubleshooting Kit',
+                file: '06_TROUBLESHOOTING_KIT.md'
+            },
+            '07': {
+                title: 'Modul 07: 25 Template Ide Aplikasi Bisnis',
+                file: '07_25_APP_IDEAS_AND_TEMPLATES.md'
+            },
+            '08': {
+                title: 'Modul 08: Deployment Guide',
+                file: '08_DEPLOYMENT_GUIDE.md'
+            }
+        };
+
+        async function viewDoc(id) {
+            const doc = DOCS[id];
+            if (!doc) return;
+            document.getElementById('modal-title').innerText = doc.title;
+            const contentBox = document.getElementById('modal-content');
+            contentBox.innerText = "Memuat isi dokumen...";
+            document.getElementById('doc-modal').classList.remove('hidden');
+
+            try {
+                const res = await fetch('/pabrik-ai/docs/' + doc.file);
+                if (res.ok) {
+                    const text = await res.text();
+                    contentBox.innerText = text;
+                } else {
+                    contentBox.innerText = "Dokumen dapat diunduh langsung melalui bundel zip atau hubungi support.";
+                }
+            } catch (e) {
+                contentBox.innerText = "Gagal memuat dokumen. Silakan gunakan tombol unduh ZIP.";
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('doc-modal').classList.add('hidden');
+        }
+
+        function copyModalContent() {
+            const text = document.getElementById('modal-content').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.getElementById('btn-copy-modal');
+                const prev = btn.innerText;
+                btn.innerText = "✓ Tersalin!";
+                btn.classList.replace('bg-indigo-600', 'bg-emerald-600');
+                setTimeout(() => {
+                    btn.innerText = prev;
+                    btn.classList.replace('bg-emerald-600', 'bg-indigo-600');
+                }, 2000);
+            });
+        }
+    </script>
+
+    <!-- Support CS Robot Widget -->
+    <script src="/app-factory/cs-widget.js"></script>
+</body>
+</html>
