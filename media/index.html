@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OmniMedia™ — Universal Social Video & Audio Extractor API</title>
+  <meta name="description" content="One API to download high-definition MP4 videos and MP3 audio from TikTok, YouTube Shorts, Instagram Reels, Twitter/X, and 1,000+ platforms without watermarks. 50% cheaper than competitors.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#090d16] text-slate-100 font-sans antialiased min-h-screen selection:bg-rose-500 selection:text-white">
+
+  <!-- Header (Isolated OmniMedia) -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-[#090d16]/90 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-2.5">
+        <a href="/media/" class="flex items-center space-x-2">
+          <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-rose-500 to-amber-500 flex items-center justify-center font-mono font-bold text-white text-sm shadow-md shadow-rose-500/20">
+            ▶
+          </div>
+          <span class="text-base sm:text-lg font-bold tracking-tight text-white">Omni<span class="text-rose-400">Media</span></span>
+        </a>
+        <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20">
+          Video & Audio
+        </span>
+      </div>
+      
+      <div class="flex items-center space-x-4">
+        <a href="#comparison" class="hidden sm:inline-block text-xs font-medium text-slate-300 hover:text-white transition">Benchmark</a>
+        <a href="#pricing" class="hidden sm:inline-block text-xs font-medium text-slate-300 hover:text-white transition">Pricing</a>
+        <a href="https://rapidapi.com/ariebintoro/api/datashield-email-verification-fraud-detection-api/pricing" target="_blank" 
+           class="px-3 py-1.5 sm:px-4 sm:py-2 text-xs font-bold rounded-full bg-rose-500 text-white hover:bg-rose-400 transition shadow-md shadow-rose-500/20">
+          Get API Key ($7/mo)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="relative overflow-hidden pt-12 pb-20 sm:pt-16 sm:pb-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-rose-500/30 bg-rose-950/40 text-xs font-medium text-rose-300 mb-6">
+        <span class="flex h-2 w-2 rounded-full bg-rose-400 animate-pulse"></span>
+        Built for Telegram Bots, Content Repurposers, Zapier, and AI Video Pipelines
+      </div>
+
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight">
+        One Single API for <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-amber-300 to-pink-500">
+          TikTok, Reels & YouTube Downloads
+        </span>
+      </h1>
+      
+      <p class="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto">
+        Extract direct MP4 video URLs (no watermarks) and MP3 audio streams from 1,000+ platforms in under a second. Undercutting competitor pricing by 50%.
+      </p>
+
+      <!-- Supported Badges -->
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs font-mono text-slate-300">
+        <span class="px-3 py-1 rounded-md bg-slate-900 border border-slate-800"><i class="fa-brands fa-tiktok text-cyan-400"></i> TikTok (No Watermark)</span>
+        <span class="px-3 py-1 rounded-md bg-slate-900 border border-slate-800"><i class="fa-brands fa-instagram text-pink-400"></i> Instagram Reels</span>
+        <span class="px-3 py-1 rounded-md bg-slate-900 border border-slate-800"><i class="fa-brands fa-youtube text-red-500"></i> YouTube Shorts</span>
+        <span class="px-3 py-1 rounded-md bg-slate-900 border border-slate-800"><i class="fa-brands fa-x-twitter text-white"></i> Twitter / X</span>
+        <span class="px-3 py-1 rounded-md bg-slate-900 border border-slate-800"><i class="fa-brands fa-pinterest text-red-400"></i> Pinterest Video</span>
+      </div>
+
+      <!-- Key Metrics -->
+      <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
+        <div class="p-4 rounded-xl border border-slate-800 bg-slate-900/60 backdrop-blur">
+          <div class="text-2xl font-bold font-mono text-rose-400">&lt; 900ms</div>
+          <div class="text-xs text-slate-400 mt-1">Average Extraction Speed</div>
+        </div>
+        <div class="p-4 rounded-xl border border-slate-800 bg-slate-900/60 backdrop-blur">
+          <div class="text-2xl font-bold font-mono text-rose-400">100% Clean</div>
+          <div class="text-xs text-slate-400 mt-1">No Watermark on TikTok</div>
+        </div>
+        <div class="p-4 rounded-xl border border-slate-800 bg-slate-900/60 backdrop-blur">
+          <div class="text-2xl font-bold font-mono text-rose-400">$7 / mo</div>
+          <div class="text-xs text-slate-400 mt-1">10,000 Quota (Pro)</div>
+        </div>
+        <div class="p-4 rounded-xl border border-slate-800 bg-slate-900/60 backdrop-blur">
+          <div class="text-2xl font-bold font-mono text-rose-400">MP4 + MP3</div>
+          <div class="text-xs text-slate-400 mt-1">Both Streams Included</div>
+        </div>
+      </div>
+
+      <!-- Quick Code Example -->
+      <div class="mt-12 max-w-3xl mx-auto text-left">
+        <div class="rounded-xl border border-slate-800 bg-[#0d131f] shadow-2xl overflow-hidden">
+          <div class="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
+            <div class="flex items-center space-x-2">
+              <span class="h-3 w-3 rounded-full bg-red-500/80 inline-block"></span>
+              <span class="h-3 w-3 rounded-full bg-yellow-500/80 inline-block"></span>
+              <span class="h-3 w-3 rounded-full bg-green-500/80 inline-block"></span>
+              <span class="ml-2 text-slate-300">curl_extract.sh</span>
+            </div>
+            <span>POST /v1/media/extract</span>
+          </div>
+          <div class="p-4 font-mono text-xs sm:text-sm text-rose-300 overflow-x-auto leading-relaxed">
+            <span class="text-slate-500"># Pass any social media link and get direct MP4 download link</span><br>
+            <span class="text-emerald-400">curl</span> -X POST <span class="text-amber-300">"https://prochatcommerce.com/api/media/v1/media/extract"</span> \<br>
+            &nbsp;&nbsp;-H <span class="text-amber-300">"Content-Type: application/json"</span> \<br>
+            &nbsp;&nbsp;-H <span class="text-amber-300">"X-RapidAPI-Key: YOUR_API_KEY"</span> \<br>
+            &nbsp;&nbsp;-d <span class="text-amber-300">'{"url": "https://www.tiktok.com/@creator/video/12345"}'</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Competitor Comparison Section (ATM - Value Arbitrage) -->
+  <section id="comparison" class="py-16 bg-[#0c101c] border-t border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-3xl font-bold text-white tracking-tight">Why Pay $13 - $20/mo for Video Scrapers?</h2>
+        <p class="mt-4 text-slate-400">
+          Other APIs enforce low quotas, high overage fees, and restrictive rate limits. OmniMedia gives you high-speed multi-platform downloads at half the price.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse rounded-xl overflow-hidden bg-slate-900/50 border border-slate-800">
+          <thead>
+            <tr class="border-b border-slate-800 bg-slate-900/80 text-xs font-mono text-slate-300 uppercase tracking-wider">
+              <th class="p-4">Feature / Pricing</th>
+              <th class="p-4 text-rose-400 font-bold bg-rose-950/20 border-x border-rose-800/40">OmniMedia™ API</th>
+              <th class="p-4 text-slate-400">Best All In One Downloader</th>
+              <th class="p-4 text-slate-400">Multi-Platform Downloader</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800 text-sm">
+            <tr>
+              <td class="p-4 font-semibold text-white">Starting Price</td>
+              <td class="p-4 font-bold text-rose-300 bg-rose-950/20 border-x border-rose-800/40">$7.00 / mo</td>
+              <td class="p-4 text-slate-400">$12.99 / mo</td>
+              <td class="p-4 text-slate-400">$19.00 / mo</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-white">Monthly Quota</td>
+              <td class="p-4 font-bold text-emerald-400 bg-rose-950/20 border-x border-rose-800/40">10,000 requests</td>
+              <td class="p-4 text-slate-400">4,000 / day</td>
+              <td class="p-4 text-slate-400">10,000 requests</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-white">No-Watermark TikTok</td>
+              <td class="p-4 font-bold text-rose-300 bg-rose-950/20 border-x border-rose-800/40">✅ 100% Watermark Free</td>
+              <td class="p-4 text-slate-400">✅ Yes</td>
+              <td class="p-4 text-slate-400">⚠️ Requires cookies</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-white">Audio Stream (MP3/M4A)</td>
+              <td class="p-4 font-bold text-rose-300 bg-rose-950/20 border-x border-rose-800/40">✅ Included in same call</td>
+              <td class="p-4 text-slate-400">❌ Video only</td>
+              <td class="p-4 text-slate-400">❌ Separate endpoint</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-white">Supported Platforms</td>
+              <td class="p-4 font-bold text-rose-300 bg-rose-950/20 border-x border-rose-800/40">✅ 1,000+ Websites</td>
+              <td class="p-4 text-slate-400">6 major sites</td>
+              <td class="p-4 text-slate-400">4 major sites</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Cards -->
+  <section id="pricing" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">High Volume Developer Pricing</h2>
+      <p class="mt-4 text-slate-400">Instant access via RapidAPI Hub. Backed by PayPal payment security.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Free Tier -->
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-8 flex flex-col justify-between">
+        <div>
+          <h3 class="text-lg font-bold text-white">FREE TRIAL</h3>
+          <p class="text-xs text-slate-400 mt-1">For testing and building bots</p>
+          <div class="mt-6 flex items-baseline">
+            <span class="text-4xl font-extrabold text-white">$0</span>
+            <span class="text-slate-400 ml-2">/ month</span>
+          </div>
+          <ul class="mt-6 space-y-3 text-sm text-slate-300">
+            <li>✓ 50 requests / month</li>
+            <li>✓ MP4 video download URLs</li>
+            <li>✓ Metadata & thumbnails</li>
+            <li>✓ Community support</li>
+          </ul>
+        </div>
+        <a href="https://rapidapi.com/ariebintoro/api/datashield-email-verification-fraud-detection-api/pricing" target="_blank"
+           class="mt-8 block text-center py-2.5 px-4 rounded-lg border border-slate-700 hover:border-slate-500 font-semibold text-white transition">
+          Start Free
+        </a>
+      </div>
+
+      <!-- Pro Tier ($7 Hot Seller) -->
+      <div class="rounded-2xl border-2 border-rose-500 bg-slate-900/90 p-8 flex flex-col justify-between relative shadow-2xl shadow-rose-500/20">
+        <div class="absolute -top-3.5 right-6 px-3 py-1 bg-rose-500 text-white text-xs font-bold uppercase rounded-full">
+          Best Value — 50% Cheaper
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white">PRO TIER</h3>
+          <p class="text-xs text-rose-300 mt-1">Best for Telegram/Discord bots & SaaS</p>
+          <div class="mt-6 flex items-baseline">
+            <span class="text-4xl font-extrabold text-white">$7</span>
+            <span class="text-slate-400 ml-2">/ month</span>
+          </div>
+          <ul class="mt-6 space-y-3 text-sm text-slate-300">
+            <li class="font-semibold text-white">✓ 10,000 requests / month</li>
+            <li>✓ HD MP4 + MP3 Audio stream</li>
+            <li>✓ No watermark on TikTok/Shorts</li>
+            <li>✓ Rate limit: 20 req / sec</li>
+            <li>✓ Fast-track media worker proxy</li>
+          </ul>
+        </div>
+        <a href="https://rapidapi.com/ariebintoro/api/datashield-email-verification-fraud-detection-api/pricing" target="_blank"
+           class="mt-8 block text-center py-2.5 px-4 rounded-lg bg-rose-500 hover:bg-rose-400 font-bold text-white transition shadow-lg shadow-rose-500/30">
+          Subscribe Pro ($7/mo)
+        </a>
+      </div>
+
+      <!-- Ultra Tier -->
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-8 flex flex-col justify-between">
+        <div>
+          <h3 class="text-lg font-bold text-white">ULTRA SCALE</h3>
+          <p class="text-xs text-slate-400 mt-1">For heavy crawlers & video platforms</p>
+          <div class="mt-6 flex items-baseline">
+            <span class="text-4xl font-extrabold text-white">$24</span>
+            <span class="text-slate-400 ml-2">/ month</span>
+          </div>
+          <ul class="mt-6 space-y-3 text-sm text-slate-300">
+            <li>✓ 75,000 requests / month</li>
+            <li>✓ Highest concurrency queue</li>
+            <li>✓ Dedicated proxy failover</li>
+            <li>✓ Dedicated email & Telegram support</li>
+          </ul>
+        </div>
+        <a href="https://rapidapi.com/ariebintoro/api/datashield-email-verification-fraud-detection-api/pricing" target="_blank"
+           class="mt-8 block text-center py-2.5 px-4 rounded-lg border border-slate-700 hover:border-slate-500 font-semibold text-white transition">
+          Subscribe Ultra ($24/mo)
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-[#06090f] py-8 text-center text-xs text-slate-500">
+    <p>&copy; 2026 OmniMedia™ by prochatcommerce.com. All rights reserved. High-availability cloud infrastructure.</p>
+  </footer>
+
+</body>
+</html>
