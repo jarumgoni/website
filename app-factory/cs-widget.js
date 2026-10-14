@@ -12,7 +12,7 @@
       gem: "AI AppFactory adalah proprietary multi-agent software architecture engine yang dirancang dengan enterprise guardrails zero-trust, DDL PostgreSQL multi-tenant, dan kepatuhan regulasi lokal (seperti PPh 21 TER PMK 168/2023). Anda menerima brankas sistem lengkap siap pakai!",
       hris: "Engine HRIS & Payroll kami dirancang presisi dengan aturan pajak Indonesia terbaru (PPh 21 TER PP 58/2023), perhitungan BPJS 10 kolom, geofencing GPS presensi 100m, dan isolasi data per PT menggunakan PostgreSQL Row Level Security (RLS).",
       crm: "Engine WhatsApp CRM mengintegrasikan webhook event-driven Baileys/Meta Cloud API, routing tiket CS otomatis, proteksi idempotensi pesan anti-duplikat, dan checkout link otomatis.",
-      wa: "Untuk konsultasi teknis langsung, kustomisasi aplikasi perusahaan, atau diskusi implementasi via WhatsApp, Anda bisa chat langsung dengan Mas Arie di <a href='https://wa.me/6283872252188' target='_blank' style='color:#34d399;font-weight:bold;text-decoration:underline;'>0838-7225-2188 (Klik untuk Chat WA)</a>."
+      wa: "Untuk konsultasi teknis langsung, kustomisasi aplikasi perusahaan, atau diskusi implementasi via WhatsApp, Anda bisa chat langsung di <a href='https://wa.me/6285117009115' target='_blank' style='color:#34d399;font-weight:bold;text-decoration:underline;'>0851-1700-9115 (Klik untuk Chat WA Bisnis)</a>."
     },
     en: {
       default: "Hi there! I'm Alya, Technical Architect at AI AppFactory. How can I help you regarding our 4 Specialized Architecture Engines, Supabase RLS security, or commercial licensing?",
